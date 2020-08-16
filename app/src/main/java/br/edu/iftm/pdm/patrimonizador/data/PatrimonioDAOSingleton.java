@@ -37,6 +37,7 @@ public class PatrimonioDAOSingleton {
         values.put(DBSchema.PatrimonioT.DESCRICAO, patrimonio.getDescricao());
 
         resultado = db.insert(DBSchema.PatrimonioT.TABELA, null, values);
+
 /*
         if(resultado == -1){
             Toast.makeText(CadastraPatrimonioActivity, "Erro ao inserir", Toast.LENGTH_LONG).show();
@@ -77,8 +78,9 @@ public class PatrimonioDAOSingleton {
         String p_estado = cursor.getString(cursor.getColumnIndex(DBSchema.PatrimonioT.ESTADO));
         float p_valor = cursor.getFloat(cursor.getColumnIndex(DBSchema.PatrimonioT.VALOR));
         String p_descricao = cursor.getString(cursor.getColumnIndex(DBSchema.PatrimonioT.DESCRICAO));
+        String p_timestamp = cursor.getString(cursor.getColumnIndex(DBSchema.PatrimonioT.TIMESTAMP));
         db.close();
-        return new Patrimonio(p_id, p_categoria, p_marca, p_estado, p_valor, p_descricao);
+        return new Patrimonio(p_id, p_categoria, p_marca, p_estado, p_valor, p_descricao, new ArrayList<String>(), p_timestamp);
     }
 
     public ArrayList<Patrimonio> getAllPatrimonios() {
@@ -97,7 +99,8 @@ public class PatrimonioDAOSingleton {
             String p_estado = cursor.getString(cursor.getColumnIndex(DBSchema.PatrimonioT.ESTADO));
             float p_valor = cursor.getFloat(cursor.getColumnIndex(DBSchema.PatrimonioT.VALOR));
             String p_descricao = cursor.getString(cursor.getColumnIndex(DBSchema.PatrimonioT.DESCRICAO));
-            patrimonios.add(new Patrimonio(p_id, p_categoria, p_marca, p_estado, p_valor, p_descricao));
+            String p_timestamp = cursor.getString(cursor.getColumnIndex(DBSchema.PatrimonioT.TIMESTAMP));
+            patrimonios.add(new Patrimonio(p_id, p_categoria, p_marca, p_estado, p_valor, p_descricao, new ArrayList<String>(), p_timestamp));
         }
         db.close();
         return patrimonios;

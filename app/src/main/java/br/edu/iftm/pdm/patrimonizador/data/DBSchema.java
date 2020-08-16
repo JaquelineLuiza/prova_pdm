@@ -10,7 +10,7 @@ public class DBSchema {
 
         public static final String getCreationQuery() {
             // TODO (1) você deverá implementar a query de criação da tabela imagem OK
-            String sqlImagem = "CREATE TABLE IF NOT EXISTS" + TABELA + "("+ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+            String sqlImagem = "CREATE TABLE IF NOT EXISTS " + TABELA + "("+ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
                     PATH+" TEXT NOT NULL, "+
                     PID+" TEXT NOT NULL);";
             return sqlImagem;
@@ -32,7 +32,7 @@ public class DBSchema {
 
         public static final String getCreationQuery() {
             // TODO (2) você deverá implementar a query de criação da tabela patrimonio OK
-            String sqlPatrimonio = "CREATE TABLE IF NOT EXISTS" + TABELA + "("+ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+            String sqlPatrimonio = "CREATE TABLE IF NOT EXISTS " + TABELA + "("+ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
                     CATEGORIA+" TEXT NOT NULL, " +
                     MARCA+" TEXT NOT NULL, "+
                     ESTADO+" TEXT NOT NULL, "+
@@ -46,7 +46,7 @@ public class DBSchema {
             //TODO (3) você deverá implementar a query de criação de uma view de seleção para patrimonio.
             // Nesta view você deverá criar a selecão da relação patrimonio-imagem. OK
             return "CREATE VIEW IF NOT EXISTS " + VIEWSELECTION
-                    + " AS SELECT * FROM " + TABELA + " JOIN " + PatrimonioT.TABELA
+                    + " AS SELECT * FROM " + PatrimonioT.TABELA + " JOIN " + ImagemT.TABELA
                     + " ON " + ID + " = " + ImagemT.PID + ";";
         }
     }
