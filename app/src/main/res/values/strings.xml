@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Patrimonizador</string>
+    <string name="categoria">Categoria</string>
+    <string name="estado">Estado</string>
+    <string name="marca">Marca</string>
+    <string name="valor">Valor</string>
+    <string name="descricao">Descrição</string>
+    <string name="salvar">Salvar</string>
+    <string name="tirar_fotos">Tirar Fotos</string>
+    <string name="deletar">Deletar</string>
+    <string name="gerar_relatorio">Gerar Relatório</string>
+    <string-array name="categorias">
+        <item>SEM CATEGORIA</item>
+        <item>CADEIRA</item>
+        <item>MESA</item>
+        <item>ARMÁRIO</item>
+        <item>COMPUTADOR</item>
+        <item>NOTEBOOK</item>
+        <item>AR CONDICIONADO</item>
+    </string-array>
+    <string-array name="estados">
+        <item>EM FUNCIONAMENTO</item>
+        <item>PARADO</item>
+        <item>DESCARTE</item>
+        <item>EMPRÉSTIMO</item>
+        <item>CONSERTO</item>
+    </string-array>
+    <string name="edit_estado">Editar Estado</string>
+    <string name="select_estado">Selecione o estado do objeto para atualização...</string>
+    <string name="aplicar">Aplicar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="delete_patrimonio">Deletar Patrimônio</string>
+    <string name="certeza_deletar_patrimonio">Tem certeza que deseja deletar o patrimônio?</string>
+    <string name="relatorio_gerado">Relatório gerado com sucesso.</string>
+    <string name="contato_criado">Contato criado.</string>
+    <string name="id">ID</string>
+</resources>
