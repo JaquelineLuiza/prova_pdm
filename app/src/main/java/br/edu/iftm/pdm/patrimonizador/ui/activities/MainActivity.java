@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         INSTANCE = this;
         this.rvPatrimonio = findViewById(R.id.rvPatrimonio);
-        // TODO -- descomente estas linhas abaixou para funcionar o carregamento da lista de patrimônios
+        // TODO -- descomente estas linhas abaixou para funcionar o carregamento da lista de patrimônios OK
 
         this.patrimonioListBuilder = new PatrimonioListBuilder(this,
                 this.rvPatrimonio, PatrimonioDAOSingleton.getINSTANCE().getAllPatrimonios());

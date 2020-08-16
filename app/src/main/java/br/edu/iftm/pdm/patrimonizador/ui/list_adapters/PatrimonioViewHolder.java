@@ -30,7 +30,11 @@ public class PatrimonioViewHolder extends RecyclerView.ViewHolder
     }
 
     public void bind(ItemList<Patrimonio> patrimonioItemList) {
-        // TODO (24) Crie aqui a reciclagem dos dados.
+        // TODO (24) Crie aqui a reciclagem dos dados. OK
+        this.txtResumo.setText(patrimonioItemList.item.toString());
+        this.txtEstado.setText(patrimonioItemList.item.getEstado());
+        this.patrimonioAtual = patrimonioItemList;
+        this.posAtual = this.getAdapterPosition();
     }
 
     @Override

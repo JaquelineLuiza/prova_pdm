@@ -5,10 +5,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import br.edu.iftm.pdm.patrimonizador.model.Patrimonio;
 import br.edu.iftm.pdm.patrimonizador.ui.activities.CadastraPatrimonioActivity;
+import br.edu.iftm.pdm.patrimonizador.ui.activities.MainActivity;
 
 public class PatrimonioDAOSingleton {
     private static PatrimonioDAOSingleton INSTANCE;
@@ -27,7 +30,6 @@ public class PatrimonioDAOSingleton {
     public long addPatrimonio(Patrimonio patrimonio) {
         //TODO (8) Neste método você deverá implementar a inserção de patrimônios
         // e imagens no banco.
-        long resultado;
         SQLiteDatabase db = this.dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DBSchema.PatrimonioT.CATEGORIA, patrimonio.getCategoria());
@@ -36,14 +38,7 @@ public class PatrimonioDAOSingleton {
         values.put(DBSchema.PatrimonioT.VALOR, patrimonio.getValor());
         values.put(DBSchema.PatrimonioT.DESCRICAO, patrimonio.getDescricao());
 
-        resultado = db.insert(DBSchema.PatrimonioT.TABELA, null, values);
-
-/*
-        if(resultado == -1){
-            Toast.makeText(CadastraPatrimonioActivity, "Erro ao inserir", Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(CadastraPatrimonioActivity, "Registro inserido com sucesso", Toast.LENGTH_LONG).show();
-        }*/
+        db.insert(DBSchema.PatrimonioT.TABELA, null, values);
 
         db.close();
 

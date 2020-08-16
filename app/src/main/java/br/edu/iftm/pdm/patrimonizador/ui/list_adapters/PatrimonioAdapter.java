@@ -3,6 +3,7 @@ package br.edu.iftm.pdm.patrimonizador.ui.list_adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,7 +17,7 @@ import br.edu.iftm.pdm.patrimonizador.model.Patrimonio;
 
 public class PatrimonioAdapter extends RecyclerView.Adapter<PatrimonioViewHolder> {
 
-    // TODO -- Observe com bastante atenção como esta classe funciona, bem como sua view holder
+    // TODO -- Observe com bastante atenção como esta classe funciona, bem como sua view holder OK
 
     private ArrayList<ItemList<Patrimonio>> patrimonios;
     protected OnClickPatrimonioListener listener;
@@ -36,7 +37,11 @@ public class PatrimonioAdapter extends RecyclerView.Adapter<PatrimonioViewHolder
     public PatrimonioAdapter(ArrayList<Patrimonio> patrimonios) {
         this.patrimonios = new ArrayList<>();
         this.nSelected = 0;
-        // TODO (20) Transforme patrimonios em uma Lista de ItemList;
+        // TODO (20) Transforme patrimonios em uma Lista de ItemList; OK
+        for (Patrimonio patrimonio: patrimonios) {
+            ItemList<Patrimonio> itemList = new ItemList<>(patrimonio);
+            this.patrimonios.add(itemList);
+        }
     }
 
     public void setOnClickPatrimonioListener(OnClickPatrimonioListener listener) {
@@ -51,9 +56,12 @@ public class PatrimonioAdapter extends RecyclerView.Adapter<PatrimonioViewHolder
     @Override
     public PatrimonioViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //TODO (21) Crie as ViewHolders observando bem os dados que são requisitados pelo
-        // construtor do PatrimonioViewHolder
-        //apague a linha abaixo quando fizer a modificação deste método
-        return new PatrimonioViewHolder(new TextView(parent.getContext()), this);
+        // construtor do PatrimonioViewHolder OK
+
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.view_patrimonio, parent, false);
+        final PatrimonioViewHolder patrimonioViewHolder = new PatrimonioViewHolder(view, this);
+        return patrimonioViewHolder;
     }
 
     @Override

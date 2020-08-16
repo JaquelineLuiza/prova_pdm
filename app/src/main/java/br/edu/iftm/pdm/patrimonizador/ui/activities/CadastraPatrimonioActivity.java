@@ -49,6 +49,7 @@ public class CadastraPatrimonioActivity extends AppCompatActivity {
     private ArrayList<String> pathImagens;
     private File ultimaFoto;
     private ImagemListBuilder imagemListBuilder;
+    private PatrimonioDAOSingleton patrimonioDAOSingleton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,11 +106,17 @@ public class CadastraPatrimonioActivity extends AppCompatActivity {
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 0);
         }
+
     }
 
     public void onClickSalvar(View view) {
         //TODO (14) Você deverá implementar um método para que o patrimônio seja persistido no
-        // banco e retorne, como resultado, o ID do patrimônio guardado para a activity requisitante.
+        // banco e retorne, como resultado, o ID do patrimônio guardado para a activity requisitante. OK
+        Patrimonio patrimonio = new Patrimonio((String) this.spinCategoria.getSelectedItem(), this.etxtMarca.getText().toString(), (String) this.spinEstado.getSelectedItem(), Float.parseFloat(this.etxtValor.getText().toString()),
+                this.etxtDescricao.getText().toString(), this.pathImagens);
+
+        patrimonioDAOSingleton.getINSTANCE().addPatrimonio(patrimonio);
+        Log.i("teste", patrimonioDAOSingleton.getINSTANCE().getAllPatrimonios().toString());
     }
 
     @Override

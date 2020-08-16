@@ -11,7 +11,7 @@ import br.edu.iftm.pdm.patrimonizador.ui.list_adapters.PatrimonioAdapter;
 
 public class PatrimonioListBuilder {
 
-    // TODO -- Preste atenção em como esta classe foi implementada
+    // TODO -- Preste atenção em como esta classe foi implementada OK
 
     private Context context;
     private RecyclerView rvPatrimonio;
